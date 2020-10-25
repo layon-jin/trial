@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:trial/my_orders.dart';
 import 'package:trial/new_order.dart';
 
 void main() {
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
           "/a": (BuildContext context) => Page1("Place a new order"),
           "/b": (BuildContext context) => Page1("My Orders"),
           "/c": (BuildContext context) => Page1("Change Password"),
+          "/tab-page": (BuildContext context) => Page2(),
         });
   }
 }
@@ -55,7 +57,7 @@ class HomePage extends StatelessWidget {
             new ListTile(
               title: new Text("My Orders"),
               trailing: new Icon(Icons.local_grocery_store),
-              onTap: () => Navigator.of(context).pushNamed("/b"),
+              onTap: () => Navigator.of(context).pushNamed("/tab-page"),
             ),
             new Divider(),
             new ListTile(
