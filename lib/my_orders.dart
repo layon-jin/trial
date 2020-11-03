@@ -11,11 +11,17 @@ class _Page2State extends State<Page2> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: DefaultTabController(
-          length: 2,
+          length: 3,
           child: new Scaffold(
             appBar: AppBar(
               elevation: 5,
               backgroundColor: Colors.red,
+              actions: <Widget>[
+                new IconButton(
+                    icon: new Icon(Icons.add_circle_outline), onPressed: () {}),
+                new IconButton(
+                    icon: new Icon(Icons.more_vert), onPressed: () {}),
+              ],
               // leading: InkWell(
               //   onTap: () => Navigator.pop(context),
               //   child: Icon(
@@ -24,26 +30,35 @@ class _Page2State extends State<Page2> {
               //   ),
               // ),
               bottom: TabBar(
-                  indicatorColor: Colors.green[900],
-                  indicatorWeight: 4,
+                  indicatorColor: Colors.white,
+                  indicatorWeight: 3,
                   tabs: [
                     Tab(
                       icon: Text(
-                        'Order 1',
-                        style: TextStyle(color: Colors.black),
+                        'Pending',
+                        style: TextStyle(color: Colors.white),
                       ),
                       //icon: Icon(Icons.school),
                     ),
                     Tab(
-                      icon: Text('Order 2',
-                          style: TextStyle(color: Colors.black)),
+                      icon: Text(
+                        'Active',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      //icon: Icon(Icons.school),
+                    ),
+                    Tab(
+                      icon: Text('Completedd',
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ]),
             ),
             body: TabBarView(children: [
 //             any widget can work very well here <3
-              _followersList("order 1 tab"),
-              _followersList("order 2 tab")
+              new IconButton(
+                  icon: new Icon(Icons.add_circle_outline), onPressed: () {}),
+              _followersList("order 2 tab"),
+              _followersList("order 3 tab")
 
               //   _followersList(false),
               // _followersList(true)

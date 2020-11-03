@@ -1,81 +1,108 @@
-import 'package:flutter/foundation.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:trial/my_orders.dart';
 import 'package:trial/new_order.dart';
 
-void main() {
-  runApp(new MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-        theme: new ThemeData(primarySwatch: Colors.red),
-        home: new HomePage(),
+    return MaterialApp(
+        title: 'Street',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        home: MyHomePage(title: 'Home Page'),
         routes: <String, WidgetBuilder>{
           "/a": (BuildContext context) => Page1("Place a new order"),
-          "/b": (BuildContext context) => Page1("My Orders"),
-          "/c": (BuildContext context) => Page1("Change Password"),
           "/tab-page": (BuildContext context) => Page2(),
         });
   }
 }
 
-class HomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int currentIndex = 0;
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      backgroundColor: Colors.white,
-      appBar: new AppBar(
-        title: new Text("Home"),
-        elevation: defaultTargetPlatform == TargetPlatform.android ? 5.0 : 0.0,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
       ),
-      drawer: new Drawer(
-        child: new ListView(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new UserAccountsDrawerHeader(
-              accountName: new Text("Layon"),
-              accountEmail: new Text("kunaguero@gmail.com"),
-              currentAccountPicture: new CircleAvatar(
-                backgroundColor: Colors.white,
-                child: new Text("L"),
-              ),
-            ),
-            new ListTile(
-              title: new Text("Home"),
-              trailing: new Icon(Icons.home),
-              onTap: () => Navigator.of(context).pushNamed(""),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("New Order"),
-              trailing: new Icon(Icons.add_circle),
-              onTap: () => Navigator.of(context).pushNamed("/a"),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("My Orders"),
-              trailing: new Icon(Icons.local_grocery_store),
-              onTap: () => Navigator.of(context).pushNamed("/tab-page"),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Change Password"),
-              trailing: new Icon(Icons.settings),
-              onTap: () => Navigator.of(context).pushNamed("/c"),
-            ),
-            new Divider(),
-            new ListTile(
-              title: new Text("Logout"),
-              trailing: new Icon(Icons.close),
-              onTap: () => Navigator.of(context).pop(),
-            ),
+            // Text('You have pushed the button this many times:'),
+            // Text(
+            //   '$_counter',
+            //   style: Theme.of(context).textTheme.headline4,
+            // ),
           ],
         ),
       ),
-      body: new Container(
-        child: new Center(child: new Text(" Home ")),
+      bottomNavigationBar: BottomNavyBar(
+        selectedIndex: currentIndex,
+        showElevation: true,
+        itemCornerRadius: 8,
+        curve: Curves.easeInBack,
+        onItemSelected: (index) => setState(() {
+          currentIndex = index;
+        }),
+        items: [
+          BottomNavyBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            activeColor: Colors.red,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.add_box),
+            title: Text('New Order'),
+            activeColor: Colors.red,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            onTap: () => Navigator.of(context).pushNamed("/tab-page")
+            icon: Icon(Icons.shopping_cart),
+            
+            title: Text(
+              'My Orders',
+            ),
+            activeColor: Colors.red,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+            activeColor: Colors.red,
+            textAlign: TextAlign.center,
+          ),
+          BottomNavyBarItem(
+            icon: Icon(Icons.settings),
+            title: Text('Settings'),
+            activeColor: Colors.red,
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     );
   }
