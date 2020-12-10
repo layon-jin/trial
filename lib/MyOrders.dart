@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(Page2());
+class Page2 extends StatefulWidget {
+  @override
+  _Page2State createState() => _Page2State();
 }
 
-class Page2 extends StatelessWidget {
+class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +48,7 @@ class Page2 extends StatelessWidget {
                       //icon: Icon(Icons.school),
                     ),
                     Tab(
-                      icon: Text('Complete',
+                      icon: Text('Completejd',
                           style: TextStyle(color: Colors.white)),
                     ),
                   ]),
