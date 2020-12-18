@@ -8,6 +8,9 @@ class Page2 extends StatefulWidget {
 class _Page2State extends State<Page2> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: DefaultTabController(
@@ -31,7 +34,7 @@ class _Page2State extends State<Page2> {
               // ),
               bottom: TabBar(
                   indicatorColor: Colors.white,
-                  indicatorWeight: 3,
+                  indicatorWeight: 2,
                   tabs: [
                     Tab(
                       icon: Text(
@@ -48,7 +51,7 @@ class _Page2State extends State<Page2> {
                       //icon: Icon(Icons.school),
                     ),
                     Tab(
-                      icon: Text('Completejd',
+                      icon: Text('Completed',
                           style: TextStyle(color: Colors.white)),
                     ),
                   ]),
@@ -67,8 +70,60 @@ class _Page2State extends State<Page2> {
   }
 
   Widget _followersList(String text) {
-    return Center(
-      child: Text(text),
+    return Scaffold(
+      appBar: AppBar(
+        // backgroundColor: Colors.red,
+        title: Container(
+          margin: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 10,
+          ),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              // ignore: missing_required_param
+              Expanded(
+                flex: 1,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Search Products",
+                    hintStyle: TextStyle(color: Colors.grey),
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.red,
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 0,
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.mic,
+                        color: Colors.red,
+                      ),
+                    ),
+                    VerticalDivider(color: Colors.black),
+                    IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.more_vert,
+                          color: Colors.red,
+                        ))
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

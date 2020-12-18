@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:trial/screens/login/components/body.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: size.height,
-        child: Stack(alignment: Alignment.center, children: <Widget>[
-          Positioned(child: Image.asset("assets/icons/login"))
-        ]),
-      ),
+      body: Body(),
     );
   }
 }
