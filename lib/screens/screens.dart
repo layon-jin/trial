@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:trial/MyOrders.dart';
 import 'package:trial/NewOrder.dart';
-import 'package:trial/Password.dart';
+import 'package:trial/profile/profile.dart';
 
 class TabNavigationItem {
   final Widget page;
@@ -32,12 +32,12 @@ class TabNavigationItem {
           title: "My Orders",
         ),
         TabNavigationItem(
-          page: Change(),
+          page: Profile(),
           icon: Icon(Icons.person),
           title: "Profile",
         ),
         TabNavigationItem(
-          page: Change(),
+          page: Page2(),
           icon: Icon(Icons.settings),
           title: "Settings",
         ),

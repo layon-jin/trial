@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:trial/screens/welcome/welcome_screen.dart';
-import 'package:trial/constants.dart';
-// import 'package:trial/screens/welcome/components/body.dart';
+import 'package:trial/profile/profile.dart';
+import 'package:trial/routes.dart';
+import 'package:trial/screens/splash/splash_screen.dart';
+import 'package:trial/theme.dart';
 
 void main() {
-  runApp(new MyApp());
+  runApp(NewApp());
 }
 
-class MyApp extends StatelessWidget {
+class NewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Demo',
-      theme: ThemeData(
-        primaryColor: kPrimaryColor,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      home: WelcomeScreen(),
+      title: 'New',
+      theme: theme(),
+      // home: SplashScreen(),
+      //initialRoute: SplashScreen.routeName,
+      initialRoute: Profile.routeName,
+      routes: routes,
     );
   }
 }

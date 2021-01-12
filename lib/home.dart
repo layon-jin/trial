@@ -7,6 +7,8 @@ import 'package:trial/screens/screens.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  static String routeName = "/home_page";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.red,
         ),
-        home: MyHomePage(title: 'Home Page'),
+        home: HomePage(title: 'Home Page'),
         routes: <String, WidgetBuilder>{
           "/a": (BuildContext context) => Page1("Place a new order"),
           "/tab-page": (BuildContext context) => Page2(),
@@ -22,16 +24,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [];
   void onTappedBar(int index) {
@@ -65,12 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 15.0,
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: Colors.red,
         showSelectedLabels: true,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.yellow,
+        selectedItemColor: Colors.black,
         unselectedLabelStyle: TextStyle(color: Colors.black, fontSize: 12),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.white,
         currentIndex: _currentIndex,
         onTap: (int index) => setState(() => _currentIndex = index),
         items: [
