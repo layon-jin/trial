@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "451104361561",
+    "project_id": "all-mart-86bb5",
+    "storage_bucket": "all-mart-86bb5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451104361561:android:46502f471701a5c8a37548",
+        "android_client_info": {
+          "package_name": "com.raywenderlich.allmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451104361561-nf1dv1tnicmrh38k4g1anpta1f3sld4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5hx6ASwLqrDDwEzR5xTCk3Uc9ZihnX2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451104361561-nf1dv1tnicmrh38k4g1anpta1f3sld4o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
